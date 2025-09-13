@@ -75,7 +75,7 @@ export default function CV() {
 
         {/* Ligne bas */}
         <div className="mt-4 text-sm text-neutral-400">
-            France • +33 7 67 43 04 62 •{" "}
+            France •{" "}
             <a
             className="underline hover:text-neutral-200"
             href="https://github.com/Florian-Glay"

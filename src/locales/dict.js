@@ -294,17 +294,17 @@ export const dict = {
             years: "2023 — Present",
           },
           {
-            degree: "French General Baccalaureate — High Honors",
+            degree: "French Baccalaureate – Awarded with distinction",
             school: "Institut de Genech — Specializations: Mathematics,  Digital and Computer Science ",
             years: "2020 — 2023",
           },
         ],
       },
       experience: {
-        title: "Professional Experience",
+        title: "Work Experience",
         items: [
           {
-            role: "Intern — Operational Support",
+            role: "Intern — Operational Tasks",
             place: "Norcap, Roubaix — 5 weeks",
             year: "2024",
             details: "Assisted with logistics operations (order preparation, storage, workflow support).",

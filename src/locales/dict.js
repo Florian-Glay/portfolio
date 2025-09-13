@@ -281,7 +281,7 @@ export const dict = {
         cta: { contact: "Contact me", downloadCv: "Download PDF" },
       },
       skills: {
-        title: "Technical Skills",
+        title: "Skills",
         langs: "Languages",
         tools: "Web & Tools",
       },

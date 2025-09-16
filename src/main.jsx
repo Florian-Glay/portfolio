@@ -11,6 +11,7 @@ import ProjectSFML from "./pages/ProjectSFML.jsx";
 import ProjectUnity from "./pages/ProjectUnity.jsx";
 import Music from "./pages/Music.jsx";
 import Running from "./pages/Running.jsx";
+import ProjectMinecraftDemo from "./pages/ProjectMinecraftDemo.jsx";
 import CV from "./pages/CV.jsx";
 import { LangProvider } from "./lib/lang.jsx";
 
@@ -48,6 +49,7 @@ const routes = [
       { index: true, element: <Home /> },
       { path: "projects", element: <Projects /> },
       { path: "projects/mariokart", element: <ProjectMarioKart /> },
+      { path: "projects/minecraftdemo", element: <ProjectMinecraftDemo /> },
       { path: "projects/sfml", element: <ProjectSFML /> },
       { path: "projects/unity", element: <ProjectUnity /> },
       { path: "music", element: <Music /> },

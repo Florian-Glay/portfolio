@@ -49,4 +49,7 @@ export const yearTotals = [
   { year: "2025", month: "Jun", km: 23.0 },
   { year: "2025", month: "Jul", km: 33.2 },
   { year: "2025", month: "Aug", km: 77.0 },
+  { year: "2025", month: "Sep", km: 28.8 },
+  { year: "2025", month: "Oct", km: 0 },
+  { year: "2025", month: "Nov", km: 9.5 },
 ];

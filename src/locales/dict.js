@@ -17,6 +17,8 @@ export const dict = {
       appsGamesDesc: "Mario Kart 3D (JS), Simulateur auto (C++/SFML), RPG 2D (Unity/C#)",
       musicDesc: "Composition électronique — chaîne YouTube @K4TERI4music",
       runningDesc: "+1500 km cumulés · objectifs : performance et régularité",
+      actu:"Sortie du moment :",
+      actuDesc :"Mario Kart 3D jouable sur le site !"
     },
     projets:{
       projects: "Projets – Conception d'apps & jeux",
@@ -207,6 +209,8 @@ export const dict = {
       appsGamesDesc: "Mario Kart 3D (JS), Car Simulator (C++/SFML), 2D RPG (Unity/C#)",
       musicDesc: "Electronic composition — YouTube channel @K4TERI4music",
       runningDesc: "1500+ km total · performance and consistency goals",
+      actu:"New Released :",
+      actuDesc :"Mario Kart 3D playable on the site !"
     },
     projets:{
       projects: "Projects – App & Game Development",

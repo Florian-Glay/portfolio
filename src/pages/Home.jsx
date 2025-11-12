@@ -7,6 +7,24 @@ export default function Home(){
   const { t } = useLang();
   const link = useLocaleLink();
 
+  const Card = ({ to, img, title, subtitle, subtitle2, color="neutral"}) => (
+    <motion.div whileHover={{ scale: 1.02 }}>
+      <Link to={link(to)} className="block rounded-2xl overflow-hidden">
+        <div className="bg-gradient-to-tr from-accent via-purple-500 to-pink-500 p-[2px] rounded-2xl">
+          <div className="bg-neutral-950 rounded-2xl">
+            <img src={img} alt={title} className="w-full aspect-[10/2] object-cover rounded-t-2xl" />
+            <div className="p-4">
+              <h3 className="font-semibold">{title}</h3>
+              <p className="text-sm text-neutral-400">{subtitle}</p>
+              {subtitle2 && color === "green" && (<p className={ `text-sm whitespace-pre-line text-green-400`}>{subtitle2}</p>)}
+              {subtitle2 && color === "red" && (<p className={ `text-sm whitespace-pre-line text-red-400`}>{subtitle2}</p>)}
+            </div>
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+
   return (
     <>
       {/* h = 100svh - 56px (navbar h-14), min pour petits écrans */}
@@ -58,6 +76,12 @@ export default function Home(){
               </div>
             ))}
           </div>
+
+          <Section title={t("home.actu")} subtitle={t("home.actuDesc")}>
+            <div className="grid md:grid-cols-1 gap-2">
+              <Card to="/projects/mariokart"  img={`${import.meta.env.BASE_URL}assets/mk-track.png`} title={t("projets.mkTitle")} subtitle={t("projets.mkSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
+            </div>
+          </Section>
         </motion.div>
       </section>
 

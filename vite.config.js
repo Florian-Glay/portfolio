@@ -6,7 +6,7 @@ import ghPages from "vite-plugin-gh-pages";
 export default defineConfig({
   plugins: [react()],
   // base = racine en dev, sous-chemin en prod (GitHub Pages)
-  base: "/portfolio/",
+  base: process.env.NODE_ENV === "production" ? "/portfolio/" : "/",
 });
 
 /*

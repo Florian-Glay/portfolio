@@ -79,8 +79,8 @@ export default function Home(){
 
           <Section title={t("home.actu")} subtitle={t("home.actuDesc")}>
             <div className="grid md:grid-cols-1 gap-2">
-              <Card to="/projects/mariokart"  img={`${import.meta.env.BASE_URL}assets/mk-track.png`} title={t("projets.mkTitle")} subtitle={t("projets.mkSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
-            </div>
+              <Card to="/projects/unity" img={`${import.meta.env.BASE_URL}assets/rpg-ingame.png`} title={t("projets.rpgTitle")} subtitle={t("projets.rpgSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
+             </div>
           </Section>
         </motion.div>
       </section>

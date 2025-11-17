@@ -1,0 +1,11 @@
+# Build le projet
+npm run build
+
+# Initialisez git dans dist
+cd dist
+git init
+git add -A
+git commit -m "deploy"
+git branch -M gh-pages
+git remote add origin https://github.com/Florian-Glay/portfolio.git
+git push -f origin gh-pages

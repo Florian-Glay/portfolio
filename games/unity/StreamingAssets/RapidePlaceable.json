@@ -1,0 +1,375 @@
+{
+    "objects": [
+        {
+            "prefabName": "wall",
+            "x": 212.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 213.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "door",
+            "x": 214.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 215.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 216.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 214.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 217.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 217.00999450683595,
+            "y": 322.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 217.00999450683595,
+            "y": 321.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 217.00999450683595,
+            "y": 320.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 217.00999450683595,
+            "y": 319.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 217.00999450683595,
+            "y": 318.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 216.00999450683595,
+            "y": 318.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 215.00999450683595,
+            "y": 318.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "floor",
+            "x": 214.0,
+            "y": 318.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "door",
+            "x": 214.00999450683595,
+            "y": 318.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 213.00999450683595,
+            "y": 318.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 212.00999450683595,
+            "y": 318.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 211.00999450683595,
+            "y": 318.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 211.00999450683595,
+            "y": 319.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 211.00999450683595,
+            "y": 320.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 211.00999450683595,
+            "y": 321.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 211.00999450683595,
+            "y": 322.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "wall",
+            "x": 211.00999450683595,
+            "y": 323.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "floor",
+            "x": 212.0,
+            "y": 322.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 213.0,
+            "y": 322.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 213.0,
+            "y": 322.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 214.0,
+            "y": 322.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 215.0,
+            "y": 322.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 216.0,
+            "y": 322.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 216.0,
+            "y": 321.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 216.0,
+            "y": 321.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 215.0,
+            "y": 321.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 214.0,
+            "y": 321.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 213.0,
+            "y": 321.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 212.0,
+            "y": 321.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 212.0,
+            "y": 320.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 212.0,
+            "y": 320.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 213.0,
+            "y": 320.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 216.0,
+            "y": 320.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 216.0,
+            "y": 320.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 216.0,
+            "y": 319.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 215.0,
+            "y": 320.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 214.0,
+            "y": 320.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 214.0,
+            "y": 319.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 215.0,
+            "y": 319.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 213.0,
+            "y": 319.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "floor",
+            "x": 212.0,
+            "y": 319.0,
+            "rotationZ": 0.0,
+            "layerName": "Floor"
+        },
+        {
+            "prefabName": "workbench",
+            "x": 215.50999450683595,
+            "y": 322.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "bed",
+            "x": 212.00999450683595,
+            "y": 321.510009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "chest",
+            "x": 214.00999450683595,
+            "y": 322.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "fireplace",
+            "x": 214.00999450683595,
+            "y": 315.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        },
+        {
+            "prefabName": "fireplace",
+            "x": 214.00999450683595,
+            "y": 316.010009765625,
+            "rotationZ": 0.0,
+            "layerName": "PlacedObject"
+        }
+    ]
+}

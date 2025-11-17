@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voxel Sandbox</title>
+    <script type="module" crossorigin src="./assets/index-DgheDuK-.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DVVx9eVl.css">
+  </head>
+  <body>
+    <div id="hud">
+      <div id="title">Voxel Sandbox</div>
+      <div id="help">ZQSD/WASD • Souris • Espace/Shift • F vol • E inventaire • 1–9 sélection</div>
+      <div id="crosshair">+</div>
+      <div id="block">Bloc: <span id="blockName">Grass</span></div>
+      <button id="start">Click to Start</button>
+
+      <!-- Hotbar -->
+      <div id="hotbar" aria-label="Hotbar / toolbar de sélection"></div>
+
+      <!-- Inventory overlay -->
+      <div id="inventoryOverlay" class="hidden" aria-hidden="true">
+        <div class="inv-window">
+          <div class="inv-title">Inventaire (E pour fermer)</div>
+          <div id="inventoryGrid" class="inv-grid"></div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

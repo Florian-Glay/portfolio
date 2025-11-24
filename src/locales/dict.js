@@ -17,8 +17,10 @@ export const dict = {
       appsGamesDesc: "Mario Kart 3D (JS), Simulateur auto (C++/SFML), RPG 2D (Unity/C#)",
       musicDesc: "Composition électronique — chaîne YouTube @K4TERI4music",
       runningDesc: "+1500 km cumulés · objectifs : performance et régularité",
-      actu:"Sortie du moment : (Fast Game Release)",
-      actuDesc :"RPG 2D jouable sur le site !"
+      actu:"Sortie du moment :",
+      actuDesc :"Photoshop Vectoriel 2D",
+      actu2:"Fast Game Release",
+      actuDesc2:"RPG 2D jouable sur le site !",
     },
     projets:{
       projects: "Projets – Conception d'apps & jeux",
@@ -34,6 +36,8 @@ export const dict = {
       rpgSubtitle: "HUD, crafting, monde procédural",
       mcDemoTitle: "Minecraft-like 3D Voxel (TypeScript)",
       mcDemoSubtitle: "TS + Vite + WebGL/Three.js – génération de chunks, biomes, villages",
+      vectTitle: "Photoshop Vectoriel 2D",
+      vectSubtitle: "Outils complets de dessin mathématique",
       marioKart: {
         noCommercial: "Voici un jeu vidéo disponible sur navigateur et qui n'a pas de but commercial",
         sub:"Démo jouable intégrée (PC)",
@@ -91,6 +95,9 @@ export const dict = {
         list2: "Biomes + villages (capture ci-dessus)",
         list3: "Contrôles ZQSD / WASD, souris pour la caméra",
       },
+      vectorPhotoshop:{
+        title: "Photoshop Vectoriel 2D",
+      }
     },
     music:{
       k4teriMusic: "K4TERI — Musique",
@@ -209,8 +216,10 @@ export const dict = {
       appsGamesDesc: "Mario Kart 3D (JS), Car Simulator (C++/SFML), 2D RPG (Unity/C#)",
       musicDesc: "Electronic composition — YouTube channel @K4TERI4music",
       runningDesc: "1500+ km total · performance and consistency goals",
-      actu:"New Released : (Fast Game Release)",
-      actuDesc :"RPG 2D playable on the site !"
+      actu:"New Released :",
+      actuDesc :"2D Vector Photoshop",
+      actu2:"Fast Game Release",
+      actuDesc2 :"RPG 2D playable on the site !"
     },
     projets:{
       projects: "Projects – App & Game Development",
@@ -226,6 +235,8 @@ export const dict = {
       rpgSubtitle: "HUD, crafting, procedural world",
       mcDemoTitle: "Minecraft-like 3D Voxel Project (TypeScript)",
       mcDemoSubtitle: "TS + Vite + WebGL/Three.js – chunk gen, biomes, villages",
+      vectTitle:"2D Vector Photoshop",
+      vectSubtitle:"Complete mathematical drawing tools",
       marioKart: {
         noCommercial: "Here is a browser-based video game with no commercial purpose",
         sub:"Built-in playable demo (PC)",
@@ -283,6 +294,9 @@ export const dict = {
         list2: "Biomes + villages (above)",
         list3: "WASD + mouse look",
       },
+      vectorPhotoshop:{
+        title: "2D Vector Photoshop",
+      }
     },
     music:{
       k4teriMusic: "K4TERI — Music",

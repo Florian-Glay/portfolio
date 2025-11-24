@@ -9,6 +9,7 @@ import Projects from "./pages/Projects.jsx";
 import ProjectMarioKart from "./pages/ProjectMarioKart.jsx";
 import ProjectSFML from "./pages/ProjectSFML.jsx";
 import ProjectUnity from "./pages/ProjectUnity.jsx";
+import ProjectVector from "./pages/ProjectVector.jsx";
 import Music from "./pages/Music.jsx";
 import Running from "./pages/Running.jsx";
 import ProjectMinecraftDemo from "./pages/ProjectMinecraftDemo.jsx";
@@ -52,6 +53,7 @@ const routes = [
       { path: "projects/minecraftdemo", element: <ProjectMinecraftDemo /> },
       { path: "projects/sfml", element: <ProjectSFML /> },
       { path: "projects/unity", element: <ProjectUnity /> },
+      { path: "projects/vector", element: <ProjectVector /> },
       { path: "music", element: <Music /> },
       { path: "running", element: <Running /> },
       { path: "cv", element: <CV /> },

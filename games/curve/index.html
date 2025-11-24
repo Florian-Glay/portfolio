@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Photoshop</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- MathJax for formulas -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #1e1e1e; color: white; }
+        canvas { display: block; outline: none; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #252526; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        .tool-btn {
+            transition: all 0.1s;
+            border-left: 3px solid transparent;
+        }
+        .tool-btn:hover { background-color: #3a3a3a; }
+        .tool-btn.active { background-color: #37373d; border-left-color: #0078d4; }
+
+        .layer-item {
+            transition: background-color 0.1s;
+        }
+        .layer-item:hover { background-color: #2a2d2e; }
+        .layer-item.active { background-color: #37373d; }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none; 
+            -moz-appearance: none;
+            appearance: none;
+            background: transparent; 
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            height: 14px; width: 14px;
+            border-radius: 50%;
+            background: #0078d4;
+            margin-top: -5px;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%; height: 4px;
+            cursor: pointer; background: #444;
+            border-radius: 2px;
+        }
+
+        /* Transition for collapsing sidebars */
+        .sidebar {
+            transition: width 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+        }
+        .sidebar.collapsed {
+            width: 0 !important;
+            overflow: hidden;
+            opacity: 0;
+        }
+        /* Floating Toggles - Moved out of sidebar to remain visible */
+        .sidebar-toggle {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 60; /* Above everything */
+            background: #252526;
+            border: 1px solid #3e3e42;
+            color: #888;
+            padding: 16px 4px;
+            cursor: pointer;
+            transition: left 0.3s ease, right 0.3s ease, background-color 0.2s;
+            display: flex; align-items: center; justify-content: center;
+            height: 60px; width: 20px;
+        }
+        .sidebar-toggle:hover { background: #3e3e42; color: white; border-color: #555; }
+
+        #toggle-left { left: 16rem; border-radius: 0 8px 8px 0; border-left: none; }
+        #toggle-right { right: 16rem; border-radius: 8px 0 0 8px; border-right: none; }
+
+        #toggle-left.collapsed { left: 0; }
+        #toggle-right.collapsed { right: 0; }
+
+        /* Color Picker Custom */
+        .color-picker-popover {
+            position: absolute;
+            right: 260px; /* Sidebar width + margin */
+            background: #252526;
+            border: 1px solid #3e3e42;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            z-index: 100;
+            display: none;
+        }
+        .color-swatch {
+            width: 20px; height: 20px; border-radius: 50%; cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .color-swatch:hover { transform: scale(1.1); }
+
+        .mjx-chtml { font-size: 110% !important; color: #ddd !important; }
+    </style>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+            }
+        }
+    </script>
+  <script type="module" crossorigin src="./assets/index-C1wn-5aL.js"></script>
+</head>
+<body class="flex h-screen w-screen text-gray-200 select-none font-sans bg-[#1e1e1e]">
+
+    <!-- Left Sidebar -->
+    <div id="sidebar-left" class="sidebar w-64 bg-[#252526] flex flex-col border-r border-[#3e3e42] z-20 flex-shrink-0 relative">
+        <!-- Header -->
+        <div class="p-3 border-b border-[#3e3e42] flex items-center gap-2">
+            <div class="w-4 h-4 rounded bg-gradient-to-br from-blue-500 to-purple-600"></div>
+            <h1 class="font-bold text-sm tracking-wide">Infographie</h1>
+        </div>
+
+        <div class="flex-1 overflow-y-auto">
+            <!-- Tools -->
+            <div class="px-3 py-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-2">Outils</div>
+            <div class="grid grid-cols-3 gap-1 px-2 mb-4">
+                <button id="tool-select" class="tool-btn p-2 flex flex-col items-center justify-center rounded bg-[#2d2d2d]" title="Pointeur / Déplacer (M)">
+                    <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
+                </button>
+                <button id="tool-pen" class="tool-btn active p-2 flex flex-col items-center justify-center rounded bg-[#2d2d2d]" title="Plume / Ajouter (P)">
+                    <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                </button>
+                <button id="tool-hand" class="tool-btn p-2 flex flex-col items-center justify-center rounded bg-[#2d2d2d]" title="Panoramique (H)">
+                    <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11" /></svg>
+                </button>
+                <button id="tool-coord" class="tool-btn p-2 flex flex-col items-center justify-center rounded bg-[#2d2d2d]" title="Saisie Coordonnées">
+                     <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </button>
+                <button id="tool-transform" class="tool-btn p-2 flex flex-col items-center justify-center rounded bg-[#2d2d2d]" title="Saisie Coordonnées">
+                     <svg class="w-5 h-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
+                </button>
+            </div>
+
+            <!-- Algorithms -->
+            <div class="px-3 py-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider">Algorithme</div>
+            
+            <button id="btn-bernstein" class="tool-btn w-full text-left px-4 py-2 border-l-4 border-transparent">
+                <div class="text-sm font-medium">Bézier (Bernstein)</div>
+                <div class="text-[10px] text-gray-400">Polynômes explicites</div>
+            </button>
+
+            <button id="btn-casteljau" class="tool-btn w-full text-left px-4 py-2 border-l-4 border-transparent">
+                <div class="text-sm font-medium">Bézier (Casteljau)</div>
+                <div class="text-[10px] text-gray-400">Récursif</div>
+            </button>
+
+            <button id="btn-deboor" class="tool-btn w-full text-left px-4 py-2 border-l-4 border-transparent">
+                <div class="text-sm font-medium">B-Spline (De Boor)</div>
+                <div class="text-[10px] text-gray-400">Algorithme standard</div>
+            </button>
+
+            <button id="btn-oslo" class="tool-btn w-full text-left px-4 py-2 border-l-4 border-transparent">
+                <div class="text-sm font-medium">B-Spline (Oslo)</div>
+                <div class="text-[10px] text-gray-400">Raffinement</div>
+            </button>
+
+            <!-- Presets -->
+            <div class="px-3 py-2 text-[10px] font-bold text-gray-500 uppercase tracking-wider mt-2">Presets</div>
+            <div class="grid grid-cols-3 gap-1 px-2">
+                <button data-preset="preset1" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">P1</button>
+                <button data-preset="preset2" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">P2</button>
+                <button data-preset="preset3" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">P3</button>
+                <button data-preset="sapin" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">Sapin</button>
+                <button data-preset="ange" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">Ange</button>
+                <button data-preset="ballon" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">Ballon</button>
+                <button data-preset="bonbon" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">Bonbon</button>
+                <button data-preset="coeur" class="preset-btn tool-btn p-2 flex items-center justify-center rounded bg-[#2d2d2d] text-[10px] hover:bg-[#3a3a3a]">Cœur</button>
+            </div>
+
+            <!-- Parameters -->
+            <div id="degree-control" class="px-4 py-4 opacity-50 pointer-events-none transition-opacity">
+                <div class="flex justify-between text-xs mb-1">
+                    <span class="text-gray-400">Degré (B-Spline)</span>
+                    <span id="degree-val" class="text-white font-bold">3</span>
+                </div>
+                <input id="degree-slider" type="range" min="1" max="10" step="1" value="3" class="w-full">
+            </div>
+        </div>
+
+        <!-- Bottom Info Bar -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#252526] border border-[#3e3e42] px-4 py-1 rounded-full shadow-lg flex items-center gap-3 pointer-events-auto z-20 opacity-90">
+            <div id="active-algo-dot" class="w-15 h-5 rounded-full bg-gray-400"></div>
+            <span id="current-algo-label" class="text-xs font-bold text-gray-300">Aucune sélection</span>
+            <div class="h-4 w-px bg-gray-600 mx-1"></div>
+            <button id="btn-info-math" class="w-10 h-10 rounded-full bg-gray-600 hover:bg-gray-500 flex items-center justify-center text-[10px] font-serif italic text-white" title="Voir les formules">i</button>
+        </div>
+        
+    </div>
+    
+    <!-- Independent Toggle Left -->
+    <div id="toggle-left" class="sidebar-toggle" title="Réduire/Agrandir">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </div>
+
+    <!-- Main Canvas Area -->
+    <div class="flex-1 relative bg-[#1e1e1e] overflow-hidden flex flex-col" id="canvas-container">
+        
+        <!-- Info Overlay (Formulas) -->
+        <div id="formula-overlay" class="absolute top-4 right-4 bg-[#252526]/95 border border-[#3e3e42] p-4 rounded shadow-xl z-30 max-w-md hidden backdrop-blur">
+            <div class="flex justify-between items-center mb-2 border-b border-gray-600 pb-1">
+                <h3 class="font-bold text-gray-200 text-sm">Formule Mathématique</h3>
+                <button id="close-formula" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div id="formula-content" class="text-sm text-gray-300 overflow-x-auto">
+                <!-- MathJax content injected here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Independent Toggle Right -->
+    <div id="toggle-right" class="sidebar-toggle" title="Réduire/Agrandir">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    </div>
+
+    <!-- Right Sidebar: Layers -->
+    <div id="sidebar-right" class="sidebar w-64 bg-[#252526] flex flex-col border-l border-[#3e3e42] z-20 flex-shrink-0 relative">
+        
+        <div class="p-3 border-b border-[#3e3e42] flex justify-between items-center">
+            <h2 class="font-bold text-sm tracking-wide">Calques</h2>
+            <div class="flex gap-1">
+                 <button id="btn-toggle-controls" class="p-1 hover:bg-[#3e3e42] rounded transition text-gray-300" title="Masquer/Montrer tous les contrôles">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                </button>
+                <button id="btn-add-layer" class="p-1 hover:bg-[#3e3e42] rounded transition text-gray-300" title="Nouvelle Courbe">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="layers-list" class="flex-1 overflow-y-auto p-1 space-y-1">
+            <!-- Layers injected here -->
+        </div>
+
+        <div class="p-3 border-t border-[#3e3e42] bg-[#1e1e1e]">
+            <div class="text-[10px] text-gray-500 space-y-1 leading-tight">
+                <p><span class="text-gray-300 font-bold">Clic G.</span> : Placer Point / Sélec.</p>
+                <p><span class="text-gray-300 font-bold">Clic Ligne</span> : Ajouter Point sur segment</p>
+                <p><span class="text-gray-300 font-bold">Glisser</span> : Déplacer Point / Caméra</p>
+                <p><span class="text-gray-300 font-bold">Dbl Clic</span> : Supprimer Point</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coordinate Input Popover -->
+    <div id="coord-popover" class="absolute top-1 left-65 bg-[#252526] border border-[#3e3e42] p-3 rounded shadow-xl z-50 hidden w-56">
+        <div class="flex justify-between items-center mb-3">
+            <h3 class="text-xs font-bold uppercase text-gray-300">Ajouter Point (x, y)</h3>
+            <button id="close-coord" class="text-gray-500 hover:text-white text-lg leading-none">&times;</button>
+        </div>
+        <div class="space-y-3">
+            <div class="flex items-center gap-3">
+                <span class="text-sm text-gray-400 font-bold w-4">X</span>
+                <input id="inp-cx" type="number" step="0.1" placeholder="0.0" class="flex-1 bg-[#1e1e1e] border border-[#3e3e42] rounded px-3 py-2 text-sm text-white focus:border-blue-500 outline-none transition-colors">
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-sm text-gray-400 font-bold w-4">Y</span>
+                <input id="inp-cy" type="number" step="0.1" placeholder="0.0" class="flex-1 bg-[#1e1e1e] border border-[#3e3e42] rounded px-3 py-2 text-sm text-white focus:border-blue-500 outline-none transition-colors">
+            </div>
+            <button id="btn-add-coord-action" class="w-full mt-2 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white rounded shadow-md transition-colors">Ajouter le point</button>
+        </div>
+    </div>
+
+    <!-- Transformation Popover -->
+    <div id="transform-popover" class="absolute top-1 left-65 bg-[#252526] border border-[#3e3e42] p-3 shadow-xl z-40 hidden w-56 rounded space-y-3">
+        <div class="flex justify-between items-center pb-1 border-b border-[#3e3e42]">
+            <h3 class="text-xs font-bold uppercase text-gray-400">Transformations</h3>
+            <button id="close-transform" class="text-gray-500 hover:text-white text-sm leading-none">&times;</button>
+        </div>
+
+        <!-- Translation -->
+        <div>
+            <div class="text-[10px] text-gray-500 mb-1 font-bold">TRANSLATION</div>
+            <div class="flex gap-1 mb-1">
+                <input id="trans-x" type="number" step="0.1" placeholder="X" class="w-1/2 bg-[#1e1e1e] border border-[#3e3e42] rounded px-1 py-1 text-xs text-white outline-none">
+                <input id="trans-y" type="number" step="0.1" placeholder="Y" class="w-1/2 bg-[#1e1e1e] border border-[#3e3e42] rounded px-1 py-1 text-xs text-white outline-none">
+            </div>
+            <button id="btn-apply-trans" class="w-full py-1 text-[10px] bg-[#3e3e42] hover:bg-[#4e4e52] text-white rounded">Appliquer</button>
+        </div>
+
+        <!-- Rotation -->
+        <div>
+            <div class="text-[10px] text-gray-500 mb-1 font-bold">ROTATION (deg)</div>
+            <div class="flex gap-1 mb-1">
+                <input id="rot-angle" type="number" step="15" placeholder="Angle" class="w-full bg-[#1e1e1e] border border-[#3e3e42] rounded px-1 py-1 text-xs text-white outline-none">
+            </div>
+            <button id="btn-apply-rot" class="w-full py-1 text-[10px] bg-[#3e3e42] hover:bg-[#4e4e52] text-white rounded">Appliquer (Centre)</button>
+        </div>
+
+        <!-- Scale -->
+        <div>
+            <div class="text-[10px] text-gray-500 mb-1 font-bold">HOMOTHÉTIE (Scale)</div>
+            <div class="flex gap-1 mb-1">
+                <input id="scale-fac" type="number" step="0.1" value="1.0" class="w-full bg-[#1e1e1e] border border-[#3e3e42] rounded px-1 py-1 text-xs text-white outline-none">
+            </div>
+            <button id="btn-apply-scale" class="w-full py-1 text-[10px] bg-[#3e3e42] hover:bg-[#4e4e52] text-white rounded">Appliquer (Centre)</button>
+        </div>
+    </div>
+
+    <!-- Custom Color Picker Popover -->
+    <div id="color-popover" class="color-picker-popover">
+        <div class="text-[10px] text-gray-400 mb-2 font-bold uppercase">Couleur de la courbe</div>
+        <div class="grid grid-cols-4 gap-2 mb-3">
+            <!-- Preset colors -->
+            <div class="color-swatch bg-red-500" data-col="#ef4444"></div>
+            <div class="color-swatch bg-green-500" data-col="#22c55e"></div>
+            <div class="color-swatch bg-blue-500" data-col="#3b82f6"></div>
+            <div class="color-swatch bg-yellow-500" data-col="#eab308"></div>
+            <div class="color-swatch bg-purple-500" data-col="#a855f7"></div>
+            <div class="color-swatch bg-pink-500" data-col="#ec4899"></div>
+            <div class="color-swatch bg-white" data-col="#ffffff"></div>
+            <div class="color-swatch bg-gray-400" data-col="#9ca3af"></div>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="text-xs text-gray-500">Hex:</span>
+            <input type="text" id="manual-color-hex" class="w-20 bg-[#1e1e1e] border border-[#3e3e42] text-xs text-white px-1 py-0.5 rounded focus:outline-none focus:border-blue-500">
+        </div>
+    </div>
+
+</body>
+</html>

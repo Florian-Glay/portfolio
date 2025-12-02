@@ -79,7 +79,7 @@ export default function Home(){
 
           <Section title={t("home.actu")} subtitle={t("home.actuDesc")}>
             <div className="grid md:grid-cols-1 gap-2">
-              <Card to="/projects/vector" img={`${import.meta.env.BASE_URL}assets/vectorImage.png`} title={t("projets.vectTitle")} subtitle={t("projets.vectSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
+              <Card to="/projects/mariokart" img={`${import.meta.env.BASE_URL}assets/mario_kart_mobile.png`} title={t("projets.mkTitle")} subtitle={t("projets.mkSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
              </div>
           </Section>
         </motion.div>
@@ -116,10 +116,16 @@ export default function Home(){
       </Section>
 
       <Section title={t("home.actu2")} subtitle={t("home.actuDesc2")}>
-            <div className="grid md:grid-cols-1 gap-2">
-              <Card to="/projects/unity" img={`${import.meta.env.BASE_URL}assets/rpg-ingame.png`} title={t("projets.rpgTitle")} subtitle={t("projets.rpgSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
-             </div>
-          </Section>
+        <div className="grid md:grid-cols-1 gap-2">
+          <Card to="/projects/vector" img={`${import.meta.env.BASE_URL}assets/vectorImage.png`} title={t("projets.vectTitle")} subtitle={t("projets.vectSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
+          </div>
+      </Section>
+
+      <Section title={t("home.actu3")} subtitle={t("home.actuDesc3")}>
+        <div className="grid md:grid-cols-1 gap-2">
+          <Card to="/projects/unity" img={`${import.meta.env.BASE_URL}assets/rpg-ingame.png`} title={t("projets.rpgTitle")} subtitle={t("projets.rpgSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
+        </div>
+      </Section>
     </>
   );
 }

@@ -18,9 +18,11 @@ export const dict = {
       musicDesc: "Composition électronique — chaîne YouTube @K4TERI4music",
       runningDesc: "+1500 km cumulés · objectifs : performance et régularité",
       actu:"Sortie du moment :",
-      actuDesc :"Photoshop Vectoriel 2D",
-      actu2:"Fast Game Release",
-      actuDesc2:"RPG 2D jouable sur le site !",
+      actuDesc :"Mario Kart 3D sur Moblie",
+      actu2:"Nouveau projet :",
+      actuDesc2 :"Photoshop Vectoriel 2D",
+      actu3:"Fast Game Release",
+      actuDesc3:"RPG 2D jouable sur le site !",
     },
     projets:{
       projects: "Projets – Conception d'apps & jeux",
@@ -40,7 +42,7 @@ export const dict = {
       vectSubtitle: "Outils complets de dessin mathématique",
       marioKart: {
         noCommercial: "Voici un jeu vidéo disponible sur navigateur et qui n'a pas de but commercial",
-        sub:"Démo jouable intégrée (PC)",
+        sub:"Démo jouable intégrée (PC & mobile) [Fullscreen recommandé]",
         playBetween: "Jouer entre 1 et 4 joueurs avec ces commandes",
         driftTip: "Dérape avec un double appuie sur l'une des touches pour tourner",
         bluetoothControls: "Contrôles Manettes Bluetooth",
@@ -217,9 +219,11 @@ export const dict = {
       musicDesc: "Electronic composition — YouTube channel @K4TERI4music",
       runningDesc: "1500+ km total · performance and consistency goals",
       actu:"New Released :",
-      actuDesc :"2D Vector Photoshop",
-      actu2:"Fast Game Release",
-      actuDesc2 :"RPG 2D playable on the site !"
+      actuDesc :"Mario Kart 3D Mobile Version",
+      actu2:"New project :",
+      actuDesc2 :"2D Vector Photoshop",
+      actu3:"Fast Game Release",
+      actuDesc3 :"RPG 2D playable on the site !"
     },
     projets:{
       projects: "Projects – App & Game Development",
@@ -239,7 +243,7 @@ export const dict = {
       vectSubtitle:"Complete mathematical drawing tools",
       marioKart: {
         noCommercial: "Here is a browser-based video game with no commercial purpose",
-        sub:"Built-in playable demo (PC)",
+        sub:"Built-in playable demo (PC & mobile) [Fullscreen recommended]",
         playBetween: "Play between 1 and 4 players with these controls",
         driftTip: "Drift by double-tapping one of the turn keys",
         bluetoothControls: "Bluetooth Controller Controls",

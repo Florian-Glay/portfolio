@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FULLSCREEN_BAR_HEIGHT = 50; // hauteur de la barre en px
 
-const GameEmbed = ({ slug, height = 720 }) => {
+const GameEmbed = ({ slug, height = 720, externe = "false" }) => {
     const containerRef = useRef(null);
     const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -54,7 +54,7 @@ const GameEmbed = ({ slug, height = 720 }) => {
             >
                 <iframe
                     title={slug}
-                    src={`${process.env.NODE_ENV === "production" ? import.meta.env.BASE_URL : ""}/games/${slug}/index.html`}
+                    src={externe !== "false" ? externe : `${process.env.NODE_ENV === "production" ? import.meta.env.BASE_URL : ""}/games/${slug}/index.html`}
                     className="w-full h-full"
                     allowFullScreen
                 />

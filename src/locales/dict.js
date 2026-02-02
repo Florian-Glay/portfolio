@@ -18,16 +18,19 @@ export const dict = {
       musicDesc: "Composition électronique — chaîne YouTube @K4TERI4music",
       runningDesc: "+1500 km cumulés · objectifs : performance et régularité",
       actu:"Sortie du moment :",
-      actuDesc :"Mario Kart 3D sur Moblie",
+      actuDesc :"SlideLab — Éditeur de présentations visuelles",
       actu2:"Nouveau projet :",
       actuDesc2 :"Photoshop Vectoriel 2D",
       actu3:"Fast Game Release",
       actuDesc3:"RPG 2D jouable sur le site !",
+      actu4:"Mise à jour Mario Kart",
+      actuDesc4 :"Mario Kart 3D sur Moblie",
     },
     projets:{
       projects: "Projets – Conception d'apps & jeux",
       selectProject: "Sélectionne un projet pour voir la démo et les détails techniques.",
       playableHere: "Jouable sur ce site",
+      appHere: "Application en ligne",
       videoDemo: "Démo vidéo",
       onlyDemo: "Démo uniquement",
       mkTitle: "Mario Kart 3D — JavaScript",
@@ -40,6 +43,8 @@ export const dict = {
       mcDemoSubtitle: "TS + Vite + WebGL/Three.js – génération de chunks, biomes, villages",
       vectTitle: "Photoshop Vectoriel 2D",
       vectSubtitle: "Outils complets de dessin mathématique",
+      slideLabTitle: "SlideLab — Éditeur de présentations visuelles",
+      slideLabSubtitle: "Canvas interactif · Présentations non linéaires",
       marioKart: {
         noCommercial: "Voici un jeu vidéo disponible sur navigateur et qui n'a pas de but commercial",
         sub:"Démo jouable intégrée (PC & mobile) [Fullscreen recommandé]",
@@ -99,7 +104,44 @@ export const dict = {
       },
       vectorPhotoshop:{
         title: "Photoshop Vectoriel 2D",
-      }
+      },
+      slideLab: {
+        title: "SlideLab",
+        subtitle: "Éditeur de présentations visuelles multiplans",
+        projectLinkLabel: "Lien du projet",
+        projectLink: "https://florian-glay.github.io/Projet-Informatique-S6-GR4/",
+
+        presentation:
+          "Projet développé dans le cadre du Projet Informatique – S6 (GR4). SlideLab est une application web permettant de concevoir des présentations visuelles interactives et non linéaires, déployée sur GitHub Pages.",
+
+        pitch:
+          "Application web de création de présentations où chaque élément graphique peut servir de point d’entrée vers une nouvelle diapositive, permettant de construire des récits interactifs à la manière d’un canevas dynamique.",
+
+        featuresTitle: "Fonctionnalités clés",
+        features: [
+          "Canevas libre avec glisser-déposer (formes, images, texte) sur un espace de travail infini",
+          "Liens entre éléments et diapositives pour créer des parcours non linéaires",
+          "Édition visuelle des objets (taille, position, style, rotation)",
+          "Gestion des slides : création, duplication et navigation par états",
+          "Export et intégration via JSON / API",
+          "Historique d’actions et persistance des données (annuler / refaire)",
+        ],
+
+        useCasesTitle: "Cas d’usage",
+        useCases: [
+          "Présentations interactives (formations, démonstrations, ateliers)",
+          "Prototypage UX et conception d’interfaces",
+          "Cartographie d’idées et storytelling visuel",
+        ],
+
+        valueTitle: "Valeur ajoutée",
+        value:
+          "SlideLab combine la liberté créative d’un éditeur canvas avec un modèle de navigation par objets, permettant de créer des parcours interactifs sans scripting complexe.",
+
+        techTitle: "Technologies & architecture",
+        tech:
+          "Application front-end moderne en JavaScript avec Vite, React et Tailwind CSS. Architecture modulaire (rendu, état, interactions, stockage) et projets sérialisables en JSON.",
+      },
     },
     music:{
       k4teriMusic: "K4TERI — Musique",
@@ -219,16 +261,19 @@ export const dict = {
       musicDesc: "Electronic composition — YouTube channel @K4TERI4music",
       runningDesc: "1500+ km total · performance and consistency goals",
       actu:"New Released :",
-      actuDesc :"Mario Kart 3D Mobile Version",
+      actuDesc :"SlideLab — Visual Presentation Editor",
       actu2:"New project :",
       actuDesc2 :"2D Vector Photoshop",
       actu3:"Fast Game Release",
-      actuDesc3 :"RPG 2D playable on the site !"
+      actuDesc3 :"RPG 2D playable on the site !",
+      actu4:"Mario Kart Update",
+      actuDesc4 :"Mario Kart 3D Mobile Version",
     },
     projets:{
       projects: "Projects – App & Game Development",
       selectProject: "Select a project to see the demo and technical details.",
       playableHere: "Playable on this site",
+      appHere: "Online Application",
       videoDemo: "Video demo",
       onlyDemo: "Demo only",
       mkTitle: "Mario Kart 3D — JavaScript",
@@ -241,6 +286,8 @@ export const dict = {
       mcDemoSubtitle: "TS + Vite + WebGL/Three.js – chunk gen, biomes, villages",
       vectTitle:"2D Vector Photoshop",
       vectSubtitle:"Complete mathematical drawing tools",
+      slideLabTitle: "SlideLab — Visual Presentation Editor",
+      slideLabSubtitle: "Interactive canvas · Non-linear presentations",
       marioKart: {
         noCommercial: "Here is a browser-based video game with no commercial purpose",
         sub:"Built-in playable demo (PC & mobile) [Fullscreen recommended]",
@@ -300,7 +347,44 @@ export const dict = {
       },
       vectorPhotoshop:{
         title: "2D Vector Photoshop",
-      }
+      },
+      slideLab: {
+        title: "SlideLab",
+        subtitle: "Multi-layer visual presentation editor",
+        projectLinkLabel: "Project link",
+        projectLink: "https://florian-glay.github.io/Projet-Informatique-S6-GR4/",
+
+        presentation:
+          "Developed as part of the Computer Science Project – S6 (GR4), SlideLab is a web application designed to create interactive, non-linear visual presentations, deployed on GitHub Pages.",
+
+        pitch:
+          "A web-based presentation tool where each visual element can act as an entry point to another slide, enabling interactive and non-linear storytelling through a dynamic canvas.",
+
+        featuresTitle: "Key features",
+        features: [
+          "Free canvas with drag-and-drop elements (shapes, images, text) on an infinite workspace",
+          "Object-based links between elements and slides for non-linear navigation",
+          "Visual object editing (size, position, style, rotation)",
+          "Slide management: creation, duplication, and state-based navigation",
+          "Export and integration via JSON / API",
+          "Action history and data persistence (undo / redo)",
+        ],
+
+        useCasesTitle: "Use cases",
+        useCases: [
+          "Interactive presentations (training, workshops, product demos)",
+          "UX and interaction prototyping",
+          "Visual idea mapping and storytelling",
+        ],
+
+        valueTitle: "Added value",
+        value:
+          "SlideLab combines the flexibility of a canvas-based editor with object-driven navigation, enabling interactive experiences without complex scripting.",
+
+        techTitle: "Technology & architecture",
+        tech:
+          "Modern front-end web application built with JavaScript, Vite, React, and Tailwind CSS. Modular architecture (rendering, state, interactions, storage) with JSON-serializable projects.",
+      },
     },
     music:{
       k4teriMusic: "K4TERI — Music",

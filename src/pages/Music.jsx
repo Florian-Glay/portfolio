@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Section from "../components/Section.jsx";
 import { videos } from "../data/music.js";
 import { useLang } from "../lib/lang";
+import "../styles.css";
 
 export default function Music(){
   const { t } = useLang();
@@ -123,12 +124,15 @@ function Card({ id, title, selected, onSelect }) {
   );
 }
 
-function EqualizerIcon(){
+function EqualizerIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true" className="opacity-90 fill-current">
-      <rect x="3" y="10" width="3" height="8" rx="1"></rect>
-      <rect x="10.5" y="6" width="3" height="12" rx="1"></rect>
-      <rect x="18" y="12" width="3" height="6" rx="1"></rect>
-    </svg>
+    <div className="loader">
+      <div className="loading">
+        <div className="load" />
+        <div className="load" />
+        <div className="load" />
+        <div className="load" />
+      </div>
+    </div>
   );
 }

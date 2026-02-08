@@ -9,7 +9,7 @@ const ratioClass = (ratio) => {
   if (ratio === "wide") return "aspect-[21/9]";
   if (ratio === "square") return "aspect-square";
   // si tu passes directement "aspect-[10/2]" par exemple :
-  if (ratio.startsWith("aspect-[")) return `aspect-[17/9] sm:aspect-video md:${ratio}`;
+  if (ratio.startsWith("aspect-[10/2]")) return `lg:${ratio} md:aspect-video sm:aspect-video`;
   return "aspect-video";
 };
 

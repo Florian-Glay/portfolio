@@ -12,6 +12,7 @@ export default function Projects(){
     <>
       <Section title={t("projets.projects")} subtitle={t("projets.selectProject")}>
         <div className="grid md:grid-cols-3 gap-6">
+          <Card to="/projects/marioKartDeluxe"  img={`${import.meta.env.BASE_URL}assets/mk-deluxe.png`}  title={t("projets.mkTitle")} subtitle={t("projets.mkSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
           <Card to="/projects/slidelab"  img={`${import.meta.env.BASE_URL}assets/slideLab-img.png`} title={t("projets.slideLabTitle")} subtitle={t("projets.slideLabSubtitle")} subtitle2={t("projets.appHere")} color ="green"/>
           <Card to="/projects/mariokart"  img={`${import.meta.env.BASE_URL}assets/mk-track.png`} title={t("projets.mkTitle")} subtitle={t("projets.mkSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>
           <Card to="/projects/vector" img={`${import.meta.env.BASE_URL}assets/vectorImage.png`} title={t("projets.vectTitle")} subtitle={t("projets.vectSubtitle")} subtitle2={t("projets.playableHere")} color ="green"/>

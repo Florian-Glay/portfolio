@@ -7,6 +7,7 @@ import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 import ProjectMarioKart from "./pages/ProjectMarioKart.jsx";
+import ProjectMarioKartDeluxe from "./pages/ProjectMarioKartDeluxe.jsx";
 import ProjectSFML from "./pages/ProjectSFML.jsx";
 import ProjectUnity from "./pages/ProjectUnity.jsx";
 import ProjectVector from "./pages/ProjectVector.jsx";
@@ -51,6 +52,7 @@ const routes = [
       { index: true, element: <Home /> },
       { path: "projects", element: <Projects /> },
       { path: "projects/mariokart", element: <ProjectMarioKart /> },
+      { path: "projects/marioKartDeluxe", element: <ProjectMarioKartDeluxe /> },
       { path: "projects/minecraftdemo", element: <ProjectMinecraftDemo /> },
       { path: "projects/sfml", element: <ProjectSFML /> },
       { path: "projects/unity", element: <ProjectUnity /> },

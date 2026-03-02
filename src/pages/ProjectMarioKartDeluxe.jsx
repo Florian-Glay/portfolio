@@ -9,8 +9,8 @@ export default function ProjectMarioKartDeluxe(){
 
     return (
     <>
-        <Section title="Mario Kart 3D (JavaScript)" subtitle={t("projets.marioKart.sub")}>
-        <GameEmbed slug="marioKartDeluxe" height={720} />
+        <Section title="Mario Kart 3D" subtitle={t("projets.marioKart.sub")}>
+        <GameEmbed slug="marioKartDeluxe" height={850} />
         </Section>
 
         <Section title={t("projets.marioKart.noCommercial")} subtitle=" ">

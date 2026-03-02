@@ -20,8 +20,6 @@ export default function ProjectMarioKartDeluxe(){
                     <ul className="list-disc pl-5 text-neutral-300 text-sm space-y-1">
                         <li>"ZQSD"</li>
                         <li>"OKLM"</li>
-                        <li>"GVBN"</li>
-                        <li>"←↑→↓"</li>
                         <li>{t("projets.marioKart.driftTip")}</li>
                     </ul>
                 </div>

@@ -10,7 +10,10 @@ export default function ProjectMarioKartDeluxe(){
     return (
     <>
         <Section title="Mario Kart 3D" subtitle={t("projets.marioKart.sub")}>
-        <GameEmbed slug="marioKartDeluxe" height={850} />
+            <div className="font-semibold mb-2">
+                <a href="https://my-game-inspired-by-mario-kart.onrender.com" target="_blank" rel="noopener noreferrer">[Démarrer le serveur en cas de panne]</a>
+            </div>
+            <GameEmbed slug="marioKartDeluxe" height={850} />
         </Section>
 
         <Section title={t("projets.marioKart.noCommercial")} subtitle=" ">

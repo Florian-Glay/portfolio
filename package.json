@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/copy-404.cjs",
+    "build": "node scripts/fix-tixier-mita-links.cjs && vite build && node scripts/copy-404.cjs",
+    "fix:tixier-mita-links": "node scripts/fix-tixier-mita-links.cjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",

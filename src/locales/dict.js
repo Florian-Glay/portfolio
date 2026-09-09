@@ -45,6 +45,8 @@ export const dict = {
       vectSubtitle: "Outils complets de dessin mathématique",
       slideLabTitle: "SlideLab — Éditeur de présentations visuelles",
       slideLabSubtitle: "Canvas interactif · Présentations non linéaires",
+      tixiertitle: "TIXIER-MITA-LAB",
+      tixiersub: "Site web du Labo de Tixier-Mita",
       marioKart: {
         noCommercial: "Voici un jeu vidéo disponible sur navigateur et qui n'a pas de but commercial",
         sub:"Démo jouable intégrée (PC & mobile) [Fullscreen recommandé]",
@@ -288,6 +290,8 @@ export const dict = {
       vectSubtitle:"Complete mathematical drawing tools",
       slideLabTitle: "SlideLab — Visual Presentation Editor",
       slideLabSubtitle: "Interactive canvas · Non-linear presentations",
+      tixiertitle: "TIXIER-MITA-LAB",
+      tixiersub: "Web Site of the Tixier-Mita Lab",
       marioKart: {
         noCommercial: "Here is a browser-based video game with no commercial purpose",
         sub:"Built-in playable demo (PC & mobile) [Fullscreen recommended]",

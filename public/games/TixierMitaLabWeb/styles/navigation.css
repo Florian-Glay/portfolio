@@ -1,0 +1,97 @@
+/* --- Navigation Minimaliste --- */
+/* La barre est sticky; le script NavBar.astro ajoute scrolled et is-open selon le contexte. */
+nav {
+    height: 120px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.nav-inner {
+    height: 100%;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #404040;
+    background-color: var(--bg-color-transparent);
+    pointer-events: auto;
+    transition: height 0.35s ease, padding 0.35s ease;
+}
+
+nav.scrolled .nav-inner {
+    /* Etat compact apres le premier scroll. */
+    height: 60px;
+    padding: 15px 25px;
+}
+
+nav .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav .logo-mark {
+    width: auto;
+    height: clamp(32px, 4vw, 52px);
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+nav ul {
+    display: flex;
+    gap: clamp(18px, 2.3vw, 34px);
+    align-items: center;
+}
+
+nav ul a,
+nav span {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.nav-icon {
+    display: inline-flex;
+    width: 14px;
+    height: 14px;
+    margin-right: 7px;
+    vertical-align: -2px;
+}
+
+.nav-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* --- Sélecteur de langue minimaliste --- */
+.lang-selector {
+    display: flex;
+    gap: 15px;
+    border-left: 1px solid #eee;
+    padding-left: 40px;
+}
+
+nav ul a:hover,
+.lang-selector span:hover,
+.lang-selector span.active {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.nav-toggle {
+    /* Cache sur desktop, affiche par responsive.css sur mobile. */
+    display: none;
+}

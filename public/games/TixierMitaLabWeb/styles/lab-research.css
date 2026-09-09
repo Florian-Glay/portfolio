@@ -1,0 +1,188 @@
+/* --- Home navigation cards --- */
+#home-links {
+    padding-top: 70px;
+}
+
+.home-content-blocks {
+    display: grid;
+    gap: 22px;
+    max-width: 980px;
+    margin: 52px auto 0;
+    padding: 0 20px;
+}
+
+.home-content-blocks .content-block {
+    width: 100%;
+}
+
+.home-link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.home-link-card {
+    position: relative;
+    isolation: isolate;
+    min-height: 210px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding: 34px;
+    border: 1px solid #e8e3d7;
+    border-radius: 8px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 248, 246, 0.86)),
+        #fff;
+    box-shadow: 0 18px 44px rgba(33, 37, 38, 0.07);
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.home-link-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(120deg, rgba(197, 160, 89, 0.16), transparent 42%),
+        linear-gradient(315deg, rgba(79, 111, 115, 0.14), transparent 48%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.home-link-card:hover,
+.home-link-card:focus-visible {
+    transform: translateY(-5px);
+    border-color: rgba(197, 160, 89, 0.65);
+    box-shadow: 0 24px 54px rgba(33, 37, 38, 0.12);
+}
+
+.home-link-card:hover::before,
+.home-link-card:focus-visible::before {
+    opacity: 1;
+}
+
+.home-link-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.home-link-icon {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    width: 155px;
+    height: 155px;
+    color: rgba(79, 111, 115, 0.16);
+    transform: rotate(-4deg);
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.home-link-card:hover .home-link-icon,
+.home-link-card:focus-visible .home-link-icon {
+    color: rgba(197, 160, 89, 0.24);
+    transform: rotate(0deg) scale(1.04);
+}
+
+.home-link-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.home-link-content {
+    position: relative;
+    z-index: 1;
+    max-width: 76%;
+    display: grid;
+    gap: 14px;
+}
+
+.home-link-title {
+    font-size: clamp(1.55rem, 2vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.home-link-description {
+    color: var(--text-light);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+}
+
+.home-link-card--research .home-link-icon,
+.home-link-card--games .home-link-icon {
+    color: rgba(197, 160, 89, 0.2);
+}
+
+.home-link-card--publication .home-link-icon,
+.home-link-card--members .home-link-icon {
+    color: rgba(79, 111, 115, 0.18);
+}
+
+.home-link-card--gallery .home-link-icon,
+.home-link-card--links .home-link-icon {
+    color: rgba(102, 102, 102, 0.14);
+}
+
+.search-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.search-menu li {
+    padding: 25px 20px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    background: #fff;
+    transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.search-menu li:hover {
+    transform: translateX(8px);
+}
+
+.search-menu li.active {
+    color: var(--text-main);
+    border-bottom: 1px solid var(--accent);
+    transform: translateX(15px);
+}
+
+#search-content {
+    font-size: 1.4rem;
+    font-family: var(--font-main);
+    font-style: italic;
+    padding: 40px;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search-content:hover {
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.12),
+        0 18px 36px rgba(0, 0, 0, 0.08),
+        0 36px 70px rgba(0, 0, 0, 0.03);
+}
+
+#search-content.is-changing {
+    opacity: 0;
+    transform: translateX(20px);
+}

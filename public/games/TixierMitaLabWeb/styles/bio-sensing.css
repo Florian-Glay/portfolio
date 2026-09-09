@@ -1,0 +1,204 @@
+/* Plateforme bio-sensing interactive: les hotspots sont positionnes par variables --x et --y. */
+
+.bio-sensing-section {
+    padding-top: 20px;
+}
+
+.bio-sensing-instruction {
+    width: min(100%, 1200px);
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    color: var(--text-light);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.bio-sensing-instruction__dot {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.4);
+}
+
+.bio-sensing-platform {
+    position: relative;
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    background: transparent;
+}
+
+.bio-sensing-platform__image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bio-sensing-hotspot {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.bio-sensing-hotspot__dot {
+    position: absolute;
+    inset: 6px;
+    display: block;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.4), 0 8px 18px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bio-sensing-hotspot::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px solid rgba(197, 160, 89, 0.65);
+    border-radius: 50%;
+    animation: bio-sensing-pulse 1.8s ease-out infinite;
+}
+
+.bio-sensing-hotspot:hover,
+.bio-sensing-hotspot:focus-visible,
+.bio-sensing-hotspot.is-active {
+    z-index: 5;
+    outline: none;
+}
+
+.bio-sensing-hotspot:hover .bio-sensing-hotspot__dot,
+.bio-sensing-hotspot:focus-visible .bio-sensing-hotspot__dot,
+.bio-sensing-hotspot.is-active .bio-sensing-hotspot__dot {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.3), 0 12px 24px rgba(0, 0, 0, 0.22);
+}
+
+.bio-sensing-preview {
+    position: absolute;
+    display: block;
+    width: clamp(190px, 24vw, 340px);
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(197, 160, 89, 0.5);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 12px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.bio-sensing-preview strong {
+    display: block;
+    margin-bottom: 10px;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.bio-sensing-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bio-sensing-preview--top {
+    bottom: calc(100% + 14px);
+}
+
+.bio-sensing-preview--bottom {
+    top: calc(100% + 14px);
+}
+
+.bio-sensing-preview--left {
+    left: 0;
+    transform: translate(-12px, 12px);
+}
+
+.bio-sensing-preview--center {
+    left: 50%;
+    transform: translate(-50%, 12px);
+}
+
+.bio-sensing-preview--right {
+    right: 0;
+    transform: translate(12px, 12px);
+}
+
+.bio-sensing-hotspot:hover .bio-sensing-preview,
+.bio-sensing-hotspot:focus-visible .bio-sensing-preview,
+.bio-sensing-hotspot.is-active .bio-sensing-preview {
+    opacity: 1;
+}
+
+.bio-sensing-hotspot:hover .bio-sensing-preview--left,
+.bio-sensing-hotspot:focus-visible .bio-sensing-preview--left,
+.bio-sensing-hotspot.is-active .bio-sensing-preview--left {
+    transform: translate(-12px, 0);
+}
+
+.bio-sensing-hotspot:hover .bio-sensing-preview--center,
+.bio-sensing-hotspot:focus-visible .bio-sensing-preview--center,
+.bio-sensing-hotspot.is-active .bio-sensing-preview--center {
+    transform: translate(-50%, 0);
+}
+
+.bio-sensing-hotspot:hover .bio-sensing-preview--right,
+.bio-sensing-hotspot:focus-visible .bio-sensing-preview--right,
+.bio-sensing-hotspot.is-active .bio-sensing-preview--right {
+    transform: translate(12px, 0);
+}
+
+@keyframes bio-sensing-pulse {
+    from {
+        opacity: 0.75;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.8);
+    }
+}
+
+@media (max-width: 768px) {
+    .bio-sensing-section {
+        padding-top: 0;
+    }
+
+    .bio-sensing-instruction {
+        justify-content: flex-start;
+        margin-bottom: 10px;
+        font-size: 0.68rem;
+        letter-spacing: 1.4px;
+    }
+
+    .bio-sensing-hotspot {
+        width: 24px;
+        height: 24px;
+    }
+
+    .bio-sensing-preview {
+        width: min(62vw, 260px);
+        padding: 10px;
+    }
+
+    .bio-sensing-preview strong {
+        font-size: 1rem;
+    }
+}

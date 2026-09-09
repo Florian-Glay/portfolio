@@ -54,7 +54,7 @@ const GameEmbed = ({ slug, height = 720, externe = "false" }) => {
             >
                 <iframe
                     title={slug}
-                    src={externe !== "false" ? externe : `${process.env.NODE_ENV === "production" ? import.meta.env.BASE_URL : ""}/games/${slug}/index.html`}
+                    src={externe !== "false" ? externe : `${import.meta.env.BASE_URL}games/${slug}/index.html`}
                     className="w-full h-full"
                     allowFullScreen
                 />

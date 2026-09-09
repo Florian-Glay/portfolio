@@ -1,0 +1,56 @@
+/* --- Members --- */
+/* Mise en page de la page Members: portrait, intro et liste chronologique. */
+.bio-intro-row {
+    max-width: 980px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+
+.bio-portrait {
+    width: clamp(130px, 16vw, 190px);
+    aspect-ratio: 1;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 auto;
+}
+
+.bio-intro {
+    text-align: left;
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 720px;
+    line-height: 1.45;
+}
+
+.about-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(130px, 0.24fr) 1fr;
+    gap: 36px;
+    padding: 28px 0;
+    border-top: 1px solid #eee;
+}
+
+.about-row-date {
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    color: var(--accent);
+    line-height: 1.1;
+}
+
+.about-row p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.5;
+}

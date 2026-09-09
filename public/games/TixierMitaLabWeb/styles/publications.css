@@ -1,0 +1,175 @@
+/* --- Publications --- */
+/* Onglets de categorie, groupes par annee et cartes membres. */
+.pub-category-tabs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 56px;
+}
+
+.pub-category-tabs button {
+    min-height: 58px;
+    border: 0;
+    border-right: 1px solid #eee;
+    background: transparent;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: color 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+}
+
+.pub-category-tabs button:last-child {
+    border-right: 0;
+}
+
+.pub-category-tabs button:hover,
+.pub-category-tabs button.active {
+    color: var(--accent);
+    opacity: 1;
+    background-color: #fff;
+}
+
+.pub-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pub-category[hidden] {
+    display: none;
+}
+
+.pub-category h3 {
+    font-family: var(--font-main);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 400;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 18px;
+}
+
+.pub-year-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.pub-year-section {
+    border-bottom: 1px solid #eee;
+}
+
+.pub-year-section summary {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    color: var(--accent);
+}
+
+.pub-year-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.pub-year-section summary::after {
+    content: '+';
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.pub-year-section[open] summary::after {
+    content: '-';
+}
+
+.pub-year-section summary span:last-child {
+    margin-left: auto;
+    font-family: var(--font-main);
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+}
+
+.pub-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.pub-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(120px, 0.2fr) 1fr;
+    gap: 32px;
+    padding: 26px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.pub-row-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.pub-row-meta span:first-child {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.pub-number {
+    font-size: 0.86rem;
+}
+
+.pub-row-meta span:not(:first-child) {
+    color: var(--text-light);
+}
+
+.pub-row-content {
+    min-width: 0;
+}
+
+.pub-row h4 {
+    font-family: var(--font-main);
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.pub-row p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.pub-link {
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 14px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px;
+    overflow-wrap: anywhere;
+}

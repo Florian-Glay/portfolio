@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && gh-pages -d dist --no-history"
+    "deploy": "gh-pages -d dist --add --nojekyll"
   },
   "dependencies": {
     "cannon-es": "^0.20.0",

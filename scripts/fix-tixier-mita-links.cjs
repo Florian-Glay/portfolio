@@ -60,8 +60,32 @@ function pointDirectoryLinksToIndex(filePath, html) {
   });
 }
 
+function rewriteEmbeddedAssetUrls(filePath, content) {
+  return content.replace(
+    /(["'])\/(?!\/)(_astro|generated)\/([^"']*)\1/g,
+    (_match, quote, directory, assetPath) => {
+      const deployDirectory = directory === "_astro" ? "astro-assets" : directory;
+      return `${quote}${relativeSiteUrl(
+        filePath,
+        `/${deployDirectory}/${assetPath}`,
+      )}${quote}`;
+    },
+  );
+}
+
 if (!fs.existsSync(siteRoot)) {
   throw new Error(`TixierMitaLabWeb is missing: ${siteRoot}`);
+}
+
+const astroSourceDirectory = path.join(siteRoot, "_astro");
+const astroDeployDirectory = path.join(siteRoot, "astro-assets");
+
+if (fs.existsSync(astroSourceDirectory)) {
+  if (fs.existsSync(astroDeployDirectory)) {
+    throw new Error("Both _astro and astro-assets directories exist.");
+  }
+
+  fs.renameSync(astroSourceDirectory, astroDeployDirectory);
 }
 
 for (const filePath of walk(siteRoot)) {
@@ -77,7 +101,15 @@ for (const filePath of walk(siteRoot)) {
       (_match, attribute, pathname, suffix = "") =>
         `${attribute}="${relativeSiteUrl(filePath, `/${pathname}`)}${suffix}"`,
     );
+    updated = updated.replace(
+      /\b(href|src)="([^"]*)_astro\/([^"]+)"/g,
+      '$1="$2astro-assets/$3"',
+    );
     updated = pointDirectoryLinksToIndex(filePath, updated);
+  }
+
+  if (extension === ".html" || extension === ".js") {
+    updated = rewriteEmbeddedAssetUrls(filePath, updated);
   }
 
   if (extension === ".css") {

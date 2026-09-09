@@ -1,0 +1,69 @@
+/* Bouton retour en haut: visible seulement quand le script ajoute la classe is-visible. */
+
+.back-to-top {
+    position: fixed;
+    right: clamp(18px, 3vw, 34px);
+    bottom: clamp(18px, 3vw, 34px);
+    z-index: 90;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(64, 64, 64, 0.25);
+    border-radius: 50%;
+    background: var(--bg-color-transparent);
+    box-shadow: 0 14px 34px rgba(26, 26, 26, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+    cursor: pointer;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top span {
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid var(--accent-secondary);
+    border-left: 2px solid var(--accent-secondary);
+    transform: translateY(4px) rotate(45deg);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+    border-color: var(--accent);
+    background: var(--bg-color);
+}
+
+.back-to-top:hover span,
+.back-to-top:focus-visible span {
+    border-color: var(--accent);
+    transform: translateY(1px) rotate(45deg);
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid rgba(197, 160, 89, 0.28);
+    outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition: none;
+    }
+}

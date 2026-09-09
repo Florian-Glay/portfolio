@@ -1,0 +1,72 @@
+/* Base globale du site: variables de couleur, reset leger et styles communs. */
+
+:root {
+    /* Color */
+    --bg-color: #fdfdfd;
+    --bg-color-transparent: #fdfdfde4;
+    --text-main: #1a1a1a;
+    --text-light: #666;
+    --accent: #c5a059;
+    --accent-secondary: #4f6f73;
+    --accent-secondary-transparent: #4f6f73c5;
+    --font-main: Arial, Calibri, Helvetica, sans-serif;
+    /* Or discret */
+    scroll-behavior: smooth;
+}
+
+html {
+    min-height: 100%;
+    overflow-x: clip;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-main);
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    line-height: 1;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+}
+
+#search,
+#labResearch,
+#home-links,
+#posts,
+#members,
+#games,
+#links-tips,
+#contacts {
+    scroll-margin-top: 120px;
+}
+
+p,
+li {
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+a {
+    overflow-wrap: anywhere;
+}
+
+@keyframes drift {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}

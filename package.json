@@ -16,7 +16,7 @@
     "cannon-es": "^0.20.0",
     "framer-motion": "^12.23.12",
     "i18next": "^25.4.2",
-    "i18next-http-backend": "^3.0.2",
+    "i18next-http-backend": "^4.0.10",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -41,5 +41,9 @@
     "tailwindcss": "^4.1.12",
     "vite": "^7.1.2",
     "vite-plugin-gh-pages": "^1.0.1"
+  },
+  "allowScripts": {
+    "@tailwindcss/oxide@4.1.12": true,
+    "esbuild@0.28.2": true
   }
 }

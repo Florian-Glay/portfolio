@@ -13,3 +13,19 @@ git remote -v
 git fetch origin
 git ls-remote origin gh-pages
 git push --force origin gh-pages
+
+# 1. Vérifier les fichiers modifiés
+git status
+
+# 2. Tester le site localement
+npm run dev
+
+# 3. Vérifier le build de production
+npm run build
+
+# 4. Enregistrer les modifications
+git add .
+git commit -m "Description de la mise à jour"
+
+# 5. Envoyer sur GitHub
+git push origin main
